@@ -3,7 +3,7 @@
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="cordova-plugin-mauron85-background-geolocation"
-        version="2.3.5">
+        version="2.3.6">
     <name>CDVBackgroundGeolocation</name>
     <description>Cordova Background Geolocation Plugin</description>
     <license>Apache-2.0</license>
@@ -21,8 +21,6 @@
 
     <!-- android -->
     <platform name="android">
-        <preference name="GOOGLE_PLAY_SERVICES_VERSION" default="11+"/>
-        <preference name="ANDROID_SUPPORT_LIBRARY_VERSION" default="23+"/>
         <preference name="ICON" default="@mipmap/icon" />
         <preference name="SMALL_ICON" default="@mipmap/icon" />
         <preference name="ACCOUNT_NAME" default="@string/app_name" />
@@ -30,9 +28,8 @@
         <preference name="ACCOUNT_TYPE" default="$PACKAGE_NAME.account" />
         <preference name="CONTENT_AUTHORITY" default="$PACKAGE_NAME" />
 
-        <framework src="android/logtofile.gradle" custom="true" type="gradleReference"/>
-        <framework src="com.google.android.gms:play-services-location:$GOOGLE_PLAY_SERVICES_VERSION" />
-        <framework src="com.android.support:support-v4:$ANDROID_SUPPORT_LIBRARY_VERSION" />
+        <framework src="com.google.android.gms:play-services-location:11+" />
+        <framework src="com.android.support:support-v4:23+" />
         <source-file src="android/plugin/src/main/java/com/tenforwardconsulting/cordova/BackgroundGeolocationPlugin.java" target-dir="src/com/tenforwardconsulting/cordova"/>
         <source-file src="android/plugin/src/main/java/com/tenforwardconsulting/bgloc/DistanceFilterLocationProvider.java" target-dir="src/com/tenforwardconsulting/bgloc"/>
         <source-file src="android/plugin/src/main/java/com/marianhello/bgloc/AbstractLocationProvider.java" target-dir="src/com/marianhello/bgloc"/>
@@ -68,8 +65,6 @@
         <source-file src="android/plugin/src/main/java/com/marianhello/logging/SQLBuilder.java" target-dir="src/com/marianhello/logging" />
         <source-file src="android/plugin/src/main/java/com/marianhello/cordova/JSONErrorFactory.java" target-dir="src/com/marianhello/cordova" />
         <source-file src="android/plugin/src/main/java/com/marianhello/cordova/PermissionHelper.java" target-dir="src/com/marianhello/cordova" />
-        <source-file src="android/plugin/src/main/java/org/apache/commons/io/Charsets.java" target-dir="src/apache/commons/io" />
-        <source-file src="android/plugin/src/main/java/org/apache/commons/io/input/ReversedLinesFileReader.java" target-dir="src/apache/commons/io/input" />
         <resource-file src="android/plugin/src/main/res/xml/syncadapter.xml" target="res/xml/syncadapter.xml" />
         <resource-file src="android/plugin/src/main/res/xml/authenticator.xml" target="res/xml/authenticator.xml" />
 
