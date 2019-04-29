@@ -248,13 +248,13 @@ public class LocationService extends Service {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 
                 NotificationChannel channel = new NotificationChannel("bgbackgroundloc", "BackgroundGeo", NotificationManager.IMPORTANCE_DEFAULT);
-                channel.setDescription(description);
+                // channel.setDescription(description);
                 // Register the channel with the system; you can't change the importance
                 // or other notification behaviors after this
                 NotificationManager notificationManager = getSystemService(NotificationManager.class);
                 notificationManager.createNotificationChannel(channel);
                 
-                builder.setChannel("bgbackgroundloc");
+                builder.setChannelId("bgbackgroundloc");
             }
             
             if (config.getSmallNotificationIcon() != null) {
