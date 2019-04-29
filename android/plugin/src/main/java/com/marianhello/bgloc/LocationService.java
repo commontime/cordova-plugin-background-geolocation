@@ -11,6 +11,8 @@ package com.marianhello.bgloc;
 
 import android.accounts.Account;
 import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.NotificationChannel;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.BroadcastReceiver;
@@ -242,6 +244,19 @@ public class LocationService extends Service {
             NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
             builder.setContentTitle(config.getNotificationTitle());
             builder.setContentText(config.getNotificationText());
+            
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                
+                NotificationChannel channel = new NotificationChannel("bgbackgroundloc", "BackgroundGeo", NotificationManager.IMPORTANCE_DEFAULT);
+                channel.setDescription(description);
+                // Register the channel with the system; you can't change the importance
+                // or other notification behaviors after this
+                NotificationManager notificationManager = getSystemService(NotificationManager.class);
+                notificationManager.createNotificationChannel(channel);
+                
+                builder.setChannel("bgbackgroundloc")    
+            }
+            
             if (config.getSmallNotificationIcon() != null) {
                 builder.setSmallIcon(getDrawableResource(config.getSmallNotificationIcon()));
             } else {
