@@ -254,7 +254,7 @@ public class LocationService extends Service {
                 NotificationManager notificationManager = getSystemService(NotificationManager.class);
                 notificationManager.createNotificationChannel(channel);
                 
-                builder.setChannel("bgbackgroundloc")    
+                builder.setChannel("bgbackgroundloc");
             }
             
             if (config.getSmallNotificationIcon() != null) {
